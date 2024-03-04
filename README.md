@@ -1,13 +1,13 @@
 # LLM-Safeguard
 
-Official repository for paper "[Prompt-Driven LLM Safeguarding via Directed Representation Optimization](https://arxiv.org/abs/2401.18018)"
+Official repository for paper "[On Prompt-Driven Safeguarding for Large Language Models](https://arxiv.org/abs/2401.18018)"
 
 If you find this repository useful or our work is related to your research, please kindly cite it:
 
 ```latex
 @article{
   llm-safeguard,
-  title={Prompt-Driven LLM Safeguarding via Directed Representation Optimization},
+  title={On Prompt-Driven Safeguarding for Large Language Models},
   author={Chujie Zheng and Fan Yin and Hao Zhou and Fandong Meng and Jie Zhou and Kai-Wei Chang and Minlie Huang and Nanyun Peng},
   journal={arXiv preprint arXiv:2401.18018},
   year={2024}
