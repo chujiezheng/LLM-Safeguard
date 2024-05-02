@@ -9,7 +9,7 @@ If you find this repository useful or our work is related to your research, plea
   llm-safeguard,
   title={On Prompt-Driven Safeguarding for Large Language Models},
   author={Chujie Zheng and Fan Yin and Hao Zhou and Fandong Meng and Jie Zhou and Kai-Wei Chang and Minlie Huang and Nanyun Peng},
-  booktitle={Proceedings of the 41th International Conference on Machine Learning},
+  booktitle={Forty-first International Conference on Machine Learning},
   year={2024}
 }
 ```
