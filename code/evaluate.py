@@ -114,6 +114,7 @@ def main():
     parser.add_argument("--config", type=str, choices=["greedy", "sampling"])
     parser.add_argument("--use_malicious", action="store_true")
     parser.add_argument("--use_advbench", action="store_true")
+    parser.add_argument("--use_gcg", action="store_true")
     parser.add_argument("--evaluator_path", type=str)
     parser.add_argument("--use_harmless", action="store_true")
     parser.add_argument("--use_testset", action="store_true")
@@ -175,6 +176,11 @@ def main():
             fname += "_advbench"
             args.model_name += "_advbench"
             with open(f"{data_path}/advbench.txt") as f:
+                prompts = f.readlines()[:100]
+        elif args.use_gcg:
+            fname += "_gcg"
+            args.model_name += "_gcg"
+            with open(f"{data_path}/advbench.txt") as f: # use original queries
                 prompts = f.readlines()[:100]
         elif args.use_testset:
             fname += "_testset"

@@ -156,6 +156,7 @@ def main():
     parser.add_argument("--use_malicious", action="store_true")
     parser.add_argument("--use_advbench", action="store_true")
     parser.add_argument("--use_alpaca", action="store_true")
+    parser.add_argument("--use_gcg", action="store_true")
     parser.add_argument("--use_harmless", action="store_true")
     parser.add_argument("--use_testset", action="store_true")
 
@@ -246,6 +247,14 @@ def main():
         fname += "_malicious"
         with open(f"{data_path}/MaliciousInstruct.txt") as f:
             lines = f.readlines()
+    elif args.use_gcg:
+        fname += "_gcg"
+        with open(f"{data_path}/advbench.txt") as f:
+            lines = f.readlines()[:100]
+        templates = json.load(open(f'{data_path}/gcg.json'))
+        for i in range(len(lines)):
+            template = templates[str(i)]['final_suffix']
+            lines[i] = lines[i] + template
     elif args.use_testset:
         fname += "_testset"
         with open(f"{data_path}/testset.txt") as f:
@@ -309,6 +318,10 @@ def main():
     # prepend sys prompt
     all_queries = [l.strip() for l in lines]
     all_messages = [prepend_sys_prompt(l, args) for l in all_queries]
+    if args.use_autodan or args.use_gcg:
+        with open(f"{data_path}/advbench.txt") as f:
+            lines = f.readlines()[:100]
+        all_queries = [l.strip() for l in lines]
 
     logging.info(f"Running")
     prompts = []
