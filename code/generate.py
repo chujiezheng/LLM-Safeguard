@@ -318,7 +318,7 @@ def main():
     # prepend sys prompt
     all_queries = [l.strip() for l in lines]
     all_messages = [prepend_sys_prompt(l, args) for l in all_queries]
-    if args.use_autodan or args.use_gcg:
+    if args.use_gcg:
         with open(f"{data_path}/advbench.txt") as f:
             lines = f.readlines()[:100]
         all_queries = [l.strip() for l in lines]
